@@ -7,6 +7,7 @@ describe('arr move index', () => {
     expect(moveIndex([3, 6, 0, 8, 2, 4], 5, 2)).to.be.deep.equal([3, 6, 4, 0, 8, 2])
     expect(moveIndex([3, 6, 0, 8, 2, 4], [3, 5], 2)).to.be.deep.equal([3, 6, 8, 4, 0, 2])
     expect(moveIndex([3, 6, 0, 8, 2, 4], [3, 5], 4)).to.be.deep.equal([3, 6, 0, 2, 8, 4])
+    expect(moveIndex([3, 6, 0, 8, 2, 4], [1, 4], 3)).to.be.deep.equal([3, 0, 6, 8, 2, 4])
   })
 })
 
