@@ -9,6 +9,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "yarn build -- -w",
+    "doc": "jsdoc src -d doc",
     "lint": "eslint --max-warnings 10 .",
     "lint:fix": "yarn lint -- --fix",
     "test": "mocha test/*.spec.js"
