@@ -1,35 +1,35 @@
-export const moveIndex = (arr, indexes, newIndex) => {
+export const move = (arr, index, prependIndex) => {
+  while (index < 0) {
+    index += arr.length
+  }
+
+  while (prependIndex < 0) {
+    prependIndex += arr.length
+  }
+
   arr = [...arr]
-  indexes = Array.isArray(indexes) ? [...indexes] : [indexes]
 
-  const len = arr.length
-
-  while (newIndex < 0) {
-    newIndex += len
-  }
-
-  let i = 0
-  while (indexes.length) {
-    let oldIndex = indexes.splice(0, 1)[0]
-    while (oldIndex < 0) {
-      oldIndex += len
-    }
-    arr.splice(newIndex + i++, 0, arr.splice(oldIndex, 1)[0])
-  }
+  arr.splice(index >= prependIndex ? prependIndex : prependIndex - 1, 0, arr.splice(index, 1)[0])
 
   return arr
 }
 
-export const moveEl = (arr, els, newIndex) => {
+export const moveEl = (arr, els, prependEl) => {
+  if (!arr.includes(prependEl)) throw new Error(`prependEl ${prependEl} should be included in arr ${arr} but not!`)
+
   arr = [...arr]
+
   els = Array.isArray(els) ? [...els] : [els]
 
-  let i = 0
   while (els.length) {
     const el = els.splice(0, 1)[0]
-    const oldIndex = arr.indexOf(el)
-    if (oldIndex === -1) continue
-    arr.splice(newIndex + i++, 0, arr.splice(oldIndex, 1)[0])
+    const index = arr.indexOf(el)
+    const prependIndex = arr.indexOf(prependEl)
+    if (index === -1) {
+      arr.splice(prependIndex, 0, el)
+      continue
+    }
+    arr = move(arr, index, prependIndex)
   }
 
   return arr

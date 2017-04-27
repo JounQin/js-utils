@@ -1,20 +1,29 @@
-const {moveIndex, moveEl} = require('../dist')
+const {move, moveEl} = require('../dist')
 const expect = require('chai').expect
 
-describe('arr move index', () => {
+describe('arr move base', () => {
   it('should deep equal', () => {
-    expect(moveIndex([1, 2, 3], 0, 1)).to.be.deep.equal([2, 1, 3])
-    expect(moveIndex([3, 6, 0, 8, 2, 4], 5, 2)).to.be.deep.equal([3, 6, 4, 0, 8, 2])
-    expect(moveIndex([3, 6, 0, 8, 2, 4], [3, 5], 2)).to.be.deep.equal([3, 6, 8, 4, 0, 2])
-    expect(moveIndex([3, 6, 0, 8, 2, 4], [3, 5], 4)).to.be.deep.equal([3, 6, 0, 2, 8, 4])
-    expect(moveIndex([3, 6, 0, 8, 2, 4], [1, 4], 3)).to.be.deep.equal([3, 0, 6, 8, 2, 4])
+    expect(move([3, 6, 7, 9, 0, 2, 5], 4, 2)).to.be.deep.equal([3, 6, 0, 7, 9, 2, 5])
+    expect(move([3, 6, 7, 9, 0, 2, 5], 1, 0)).to.be.deep.equal([6, 3, 7, 9, 0, 2, 5])
+    expect(move([3, 6, 7, 9, 0, 2, 5], 1, 2)).to.be.deep.equal([3, 6, 7, 9, 0, 2, 5])
+    expect(move([3, 6, 7, 9, 0, 2, 5], 2, 1)).to.be.deep.equal([3, 7, 6, 9, 0, 2, 5])
+    expect(move([3, 6, 7, 9, 0, 2, 5], 1, 3)).to.be.deep.equal([3, 7, 6, 9, 0, 2, 5])
+    expect(move([3, 6, 7, 9, 0, 2, 5], 1, 1)).to.be.deep.equal([3, 6, 7, 9, 0, 2, 5])
   })
 })
 
 describe('arr move el', () => {
   it('should deep equal', () => {
-    expect(moveEl([1, 2, 3], 2, 2)).to.be.deep.equal([1, 3, 2])
+    expect(moveEl([1, 2, 3], 2, 2)).to.be.deep.equal([1, 2, 3])
     expect(moveEl([3, 6, 0, 8, 2, 4], 6, 4)).to.be.deep.equal([3, 0, 8, 2, 6, 4])
-    expect(moveEl([3, 6, 0, 8, 2, 4], [6, 8], 3)).to.be.deep.equal([3, 0, 6, 8, 2, 4])
+    expect(moveEl([3, 6, 0, 8, 2, 4], [6, 8], 3)).to.be.deep.equal([6, 8, 3, 0, 2, 4])
+    expect(moveEl([3, 6, 0, 8, 2, 4], [0, 4], 2)).to.be.deep.equal([3, 6, 8, 0, 4, 2])
+    expect(moveEl([3, 6, 0, 8, 2, 4], [6, 2], 0)).to.be.deep.equal([3, 6, 2, 0, 8, 4])
+    expect(moveEl([3, 6, 0, 8, 2, 4], [2, 6], 0)).to.be.deep.equal([3, 2, 6, 0, 8, 4])
+    expect(moveEl([3, 6, 0, 8, 2, 4], [2, 6, 9], 8)).to.be.deep.equal([3, 0, 2, 6, 9, 8, 4])
+  })
+
+  it('should throw error', () => {
+    expect(moveEl.bind(null, [3, 6, 0, 8, 2, 4], 1, 5)).to.throw('prependEl 5 should be included in arr 3,6,0,8,2,4 but not!')
   })
 })
