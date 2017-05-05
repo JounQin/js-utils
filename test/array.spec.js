@@ -14,6 +14,8 @@ describe('arr move base', () => {
 
 describe('arr move el', () => {
   it('should deep equal', () => {
+    expect(moveEl([1, 2, 3, 4], [1, 2, 3], 1)).to.be.deep.equal([1, 2, 3, 4])
+    expect(moveEl([1, 2, 3, 4], [1, 2, 3, 4], 4)).to.be.deep.equal([1, 2, 3, 4])
     expect(moveEl([1, 2, 3], 2, 2)).to.be.deep.equal([1, 2, 3])
     expect(moveEl([3, 6, 0, 8, 2, 4], 6, 4)).to.be.deep.equal([3, 0, 8, 2, 6, 4])
     expect(moveEl([3, 6, 0, 8, 2, 4], [6, 8], 3)).to.be.deep.equal([6, 8, 3, 0, 2, 4])
