@@ -8,12 +8,12 @@
  * @returns {Array} 原数组
  */
 export const move = (arr, index, prependIndex) => {
-  while (index < 0) {
-    index += arr.length
+  if (index < 0) {
+    index = Math.max(0, index + arr.length)
   }
 
-  while (prependIndex < 0) {
-    prependIndex += arr.length
+  if (prependIndex < 0) {
+    prependIndex = Math.max(0, prependIndex + arr.length)
   }
 
   arr.splice(index >= prependIndex ? prependIndex : prependIndex - 1, 0, arr.splice(index, 1)[0])
@@ -62,6 +62,42 @@ export const moveEl = (arr, els, prependEl, key) => {
     }
     move(arr, index, prependIndex)
   }
+
+  return arr
+}
+
+/**
+ * 将数组 arr 中指定索引 toMoveIndexes 移动到 targetIndex 位置，targetIndex 可以是任意数字
+ * <h6 class="important">此函数将修改 arr 和 els, 如果希望避免原数组被修改, 请在调用此函数前复制一个新数组</h6>
+ *
+ * @param {Array} arr         任意数组
+ * @param {int} toMoveIndexes 指定需要移动的索引
+ * @param {int }targetIndex   目标索引
+ * @returns {Array}           原数组
+ */
+export const moveIndex = (arr, toMoveIndexes, targetIndex) => {
+  if (targetIndex < 0) {
+    targetIndex = Math.max(0, targetIndex + arr.length)
+  }
+
+  toMoveIndexes = Array.isArray(toMoveIndexes) ? toMoveIndexes : [toMoveIndexes]
+
+  let offset = 0
+
+  const toMoveEls = toMoveIndexes.map((index, i) => {
+    if (index < 0) {
+      index = toMoveIndexes[i] = Math.max(0, index + arr.length)
+    }
+
+    if (index >= arr.length) throw new Error(`toMoveIndexes \`[${toMoveIndexes}]\` should be all included in arr indexes`)
+
+    if (index < targetIndex) offset++
+    return arr[index]
+  })
+
+  toMoveIndexes.sort().reverse().forEach(index => arr.splice(index, 1))
+
+  arr.splice(targetIndex - offset, 0, ...toMoveEls)
 
   return arr
 }
