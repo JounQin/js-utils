@@ -1,16 +1,5 @@
-const {move, moveEl, moveIndex} = require('../dist')
+const {moveEl, moveIndex} = require('../dist')
 const expect = require('chai').expect
-
-describe('arr move base', () => {
-  it('should deep equal', () => {
-    expect(move([3, 6, 7, 9, 0, 2, 5], 4, 2)).to.be.deep.equal([3, 6, 0, 7, 9, 2, 5])
-    expect(move([3, 6, 7, 9, 0, 2, 5], 1, 0)).to.be.deep.equal([6, 3, 7, 9, 0, 2, 5])
-    expect(move([3, 6, 7, 9, 0, 2, 5], 1, 2)).to.be.deep.equal([3, 6, 7, 9, 0, 2, 5])
-    expect(move([3, 6, 7, 9, 0, 2, 5], 2, 1)).to.be.deep.equal([3, 7, 6, 9, 0, 2, 5])
-    expect(move([3, 6, 7, 9, 0, 2, 5], 1, 3)).to.be.deep.equal([3, 7, 6, 9, 0, 2, 5])
-    expect(move([3, 6, 7, 9, 0, 2, 5], 1, 1)).to.be.deep.equal([3, 6, 7, 9, 0, 2, 5])
-  })
-})
 
 describe('arr move el', () => {
   it('should deep equal', () => {
@@ -26,7 +15,7 @@ describe('arr move el', () => {
   })
 
   it('should throw error', () => {
-    expect(moveEl.bind(null, [3, 6, 0, 8, 2, 4], 1, 5)).to.throw('prependEl 5 should be included in arr 3,6,0,8,2,4 but not!')
+    expect(moveEl.bind(null, [3, 6, 0, 8, 2, 4], 1, 5)).to.throw('targetEl 5 should be included in arr 3,6,0,8,2,4 but not!')
   })
 })
 
