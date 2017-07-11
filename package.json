@@ -10,22 +10,23 @@
     "build": "rollup -c",
     "dev": "yarn build -- -w",
     "doc": "jsdoc src -d docs",
-    "lint": "eslint --max-warnings 10 .",
+    "lint": "eslint . --max-warnings 10",
     "lint:fix": "yarn lint -- --fix",
     "test": "mocha test/*.spec.js"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "chai": "^3.5.0",
-    "eslint": "^3.19.0",
+    "chai": "^4.0.2",
+    "eslint": "^4.2.0",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^3.3.0",
-    "rollup": "^0.41.6",
+    "jsdoc": "^3.5.1",
+    "mocha": "^3.4.2",
+    "rollup": "^0.45.1",
     "rollup-plugin-buble": "^0.15.0",
-    "rollup-watch": "^3.2.2"
+    "rollup-watch": "^4.0.0"
   }
 }
