@@ -1,16 +1,12 @@
 language: node_js
 
-node_js:
-  - stable
+node_js: stable
 
-cache:
-  - node_modules
+cache: node_modules
 
-before_install:
-  - rm yarn.lock
+before_install: rm yarn.lock
 
-install:
-  - yarn
+install: yarn
 
 script:
   - yarn lint
