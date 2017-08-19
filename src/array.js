@@ -21,7 +21,8 @@ export const moveIndex = (arr, toMoveIndexes, targetIndex) => {
       index = toMoveIndexes[i] = Math.max(0, index + arr.length)
     }
 
-    if (index >= arr.length) throw new Error(`toMoveIndexes \`[${toMoveIndexes}]\` should be all included in arr indexes`)
+    if (index >= arr.length)
+      throw new Error(`toMoveIndexes \`[${toMoveIndexes}]\` should be all included in arr indexes`)
 
     if (index < targetIndex) offset++
     return arr[index]
@@ -34,7 +35,7 @@ export const moveIndex = (arr, toMoveIndexes, targetIndex) => {
   return arr
 }
 
-const findIndex = (arr, el, key) => arr.findIndex(item => key == null ? item === el : item[key] === el[key])
+const findIndex = (arr, el, key) => arr.findIndex(item => (key == null ? item === el : item[key] === el[key]))
 
 /**
  * 将数组 arr 中指定元素 toMoveEls 移动到 targetIndex 位置

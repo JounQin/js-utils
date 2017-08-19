@@ -12,20 +12,22 @@
     "doc": "jsdoc src -d docs",
     "lint": "eslint . --max-warnings 10",
     "lint:fix": "yarn lint -- --fix",
-    "test": "mocha test/*.spec.js"
+    "test": "jest",
+    "codecov": "codecov"
+  },
+  "jest": {
+    "collectCoverage": true
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "chai": "^4.1.0",
-    "eslint": "^4.2.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "jsdoc": "^3.5.3",
-    "mocha": "^3.4.2",
-    "rollup": "^0.47.0",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.1",
+    "codecov": "^2.3.0",
+    "eslint": "^4.5.0",
+    "eslint-config-1stg": "^0.0.4",
+    "jest": "^20.0.4",
+    "jsdoc": "^3.5.4",
+    "rollup": "^0.47.6",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-watch": "^4.3.1"
   }
