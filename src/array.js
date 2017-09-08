@@ -28,7 +28,10 @@ export const moveIndex = (arr, toMoveIndexes, targetIndex) => {
     return arr[index]
   })
 
-  toMoveIndexes.sort().reverse().forEach(index => arr.splice(index, 1))
+  toMoveIndexes
+    .sort()
+    .reverse()
+    .forEach(index => arr.splice(index, 1))
 
   arr.splice(targetIndex - offset, 0, ...toMoveEls)
 
@@ -67,7 +70,10 @@ export const moveEl2Index = (arr, toMoveEls, targetIndex, key) => {
     }
   })
 
-  toMoveIndexes.sort((x, y) => x - y).reverse().forEach(index => arr.splice(index, 1))
+  toMoveIndexes
+    .sort((x, y) => x - y)
+    .reverse()
+    .forEach(index => arr.splice(index, 1))
 
   arr.splice(targetIndex - offset, 0, ...toMoveEls)
 
