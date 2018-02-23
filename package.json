@@ -23,7 +23,7 @@
     "babel-preset-env": "^1.6.1",
     "codecov": "^3.0.0",
     "eslint": "^4.9.0",
-    "eslint-config-1stg": "^0.0.5",
+    "eslint-config-1stg": "^2.0.0",
     "jest": "^22.0.0",
     "jsdoc": "^3.5.5",
     "rollup": "^0.56.0",
