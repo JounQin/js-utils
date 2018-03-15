@@ -4,8 +4,8 @@ export default {
   input: 'src/index.js',
   output: {
     file: 'dist/index.js',
-    format: 'umd'
+    format: 'umd',
+    name: 'js-utils',
   },
   plugins: [buble()],
-  name: 'js-utils'
 }

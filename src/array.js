@@ -22,7 +22,9 @@ export const moveIndex = (arr, toMoveIndexes, targetIndex) => {
     }
 
     if (index >= arr.length)
-      throw new Error(`toMoveIndexes \`[${toMoveIndexes}]\` should be all included in arr indexes`)
+      throw new Error(
+        `toMoveIndexes \`[${toMoveIndexes}]\` should be all included in arr indexes`,
+      )
 
     if (index < targetIndex) offset++
     return arr[index]
@@ -38,7 +40,8 @@ export const moveIndex = (arr, toMoveIndexes, targetIndex) => {
   return arr
 }
 
-const findIndex = (arr, el, key) => arr.findIndex(item => (key == null ? item === el : item[key] === el[key]))
+const findIndex = (arr, el, key) =>
+  arr.findIndex(item => (key == null ? item === el : item[key] === el[key]))
 
 /**
  * 将数组 arr 中指定元素 toMoveEls 移动到 targetIndex 位置
@@ -95,7 +98,10 @@ export const moveEl2Index = (arr, toMoveEls, targetIndex, key) => {
 export const moveEl = (arr, toMoveEls, targetEl, key, next) => {
   let targetIndex = findIndex(arr, targetEl, key)
 
-  if (targetIndex === -1) throw new Error(`targetEl ${targetEl} should be included in arr ${arr} but not!`)
+  if (targetIndex === -1)
+    throw new Error(
+      `targetEl ${targetEl} should be included in arr ${arr} but not!`,
+    )
 
   if (next) targetIndex++
 

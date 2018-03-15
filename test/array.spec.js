@@ -1,4 +1,4 @@
-import {moveEl, moveIndex} from '../src'
+import { moveEl, moveIndex } from '../src'
 
 test('should deep equal', () => {
   expect(moveEl([1, 2, 3, 4], [1, 2, 3], 1)).toEqual([1, 2, 3, 4])
@@ -9,12 +9,20 @@ test('should deep equal', () => {
   expect(moveEl([3, 6, 0, 8, 2, 4], [0, 4], 2)).toEqual([3, 6, 8, 0, 4, 2])
   expect(moveEl([3, 6, 0, 8, 2, 4], [6, 2], 0)).toEqual([3, 6, 2, 0, 8, 4])
   expect(moveEl([3, 6, 0, 8, 2, 4], [2, 6], 0)).toEqual([3, 2, 6, 0, 8, 4])
-  expect(moveEl([3, 6, 0, 8, 2, 4], [2, 6, 9], 8)).toEqual([3, 0, 2, 6, 9, 8, 4])
+  expect(moveEl([3, 6, 0, 8, 2, 4], [2, 6, 9], 8)).toEqual([
+    3,
+    0,
+    2,
+    6,
+    9,
+    8,
+    4,
+  ])
 })
 
 test('should throw error', () => {
   expect(moveEl.bind(null, [3, 6, 0, 8, 2, 4], 1, 5)).toThrow(
-    'targetEl 5 should be included in arr 3,6,0,8,2,4 but not!'
+    'targetEl 5 should be included in arr 3,6,0,8,2,4 but not!',
   )
 })
 
@@ -28,14 +36,42 @@ test('should deep equal', () => {
   expect(moveIndex([3, 6, 0, 8, 2, 4], [0, 4], 2)).toEqual([6, 3, 2, 0, 8, 4])
   expect(moveIndex([3, 6, 0, 8, 2, 4], [5, 2], 0)).toEqual([4, 0, 3, 6, 8, 2])
   expect(moveIndex([3, 6, 0, 8, 2, 4], [2, 5], 0)).toEqual([0, 4, 3, 6, 8, 2])
-  expect(moveIndex([3, 6, 0, 8, 2, 4], [2, 5, 3], 4)).toEqual([3, 6, 0, 4, 8, 2])
-  expect(moveIndex([3, 6, 0, 8, 2, 4], [2, 5, 3], 6)).toEqual([3, 6, 2, 0, 4, 8])
-  expect(moveIndex([3, 6, 0, 8, 2, 4], [2, 5, 3], 100)).toEqual([3, 6, 2, 0, 4, 8])
-  expect(moveIndex([3, 6, 0, 8, 2, 4], [-1, 2, 3], 100)).toEqual([3, 6, 2, 4, 0, 8])
+  expect(moveIndex([3, 6, 0, 8, 2, 4], [2, 5, 3], 4)).toEqual([
+    3,
+    6,
+    0,
+    4,
+    8,
+    2,
+  ])
+  expect(moveIndex([3, 6, 0, 8, 2, 4], [2, 5, 3], 6)).toEqual([
+    3,
+    6,
+    2,
+    0,
+    4,
+    8,
+  ])
+  expect(moveIndex([3, 6, 0, 8, 2, 4], [2, 5, 3], 100)).toEqual([
+    3,
+    6,
+    2,
+    0,
+    4,
+    8,
+  ])
+  expect(moveIndex([3, 6, 0, 8, 2, 4], [-1, 2, 3], 100)).toEqual([
+    3,
+    6,
+    2,
+    4,
+    0,
+    8,
+  ])
 })
 
 test('should throw error', () => {
   expect(moveIndex.bind(null, [3, 6, 0, 8, 2, 4], [1, 9], 5)).toThrow(
-    'toMoveIndexes `[1,9]` should be all included in arr indexes'
+    'toMoveIndexes `[1,9]` should be all included in arr indexes',
   )
 })

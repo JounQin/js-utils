@@ -2,7 +2,6 @@
   "name": "js-utils",
   "version": "1.0.0",
   "description": "personal set of js-utils",
-  "main": "index.js",
   "repository": "git@github.com:JounQin/js-utils.git",
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
@@ -15,19 +14,40 @@
     "test": "jest",
     "codecov": "codecov"
   },
+  "babel": {
+    "presets": ["env"]
+  },
+  "eslintConfig": {
+    "extends": ["1stg"]
+  },
+  "eslintIgnore": ["coverage", "dist", "docs"],
   "jest": {
     "collectCoverage": true
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "overrides": [
+      {
+        "files": "package.json",
+        "options": {
+          "printWidth": 150
+        }
+      }
+    ]
+  },
   "devDependencies": {
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.2.2",
     "babel-preset-env": "^1.6.1",
     "codecov": "^3.0.0",
-    "eslint": "^4.9.0",
-    "eslint-config-1stg": "^0.0.5",
-    "jest": "^22.0.0",
+    "eslint": "^4.18.2",
+    "eslint-config-1stg": "^2.1.0",
+    "jest": "^22.4.2",
     "jsdoc": "^3.5.5",
-    "rollup": "^0.56.0",
-    "rollup-plugin-buble": "^0.19.1",
+    "prettier": "^1.11.1",
+    "rollup": "^0.56.5",
+    "rollup-plugin-buble": "^0.19.2",
     "rollup-watch": "^4.3.1"
   }
 }
