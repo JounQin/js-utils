@@ -1,4 +1,4 @@
-import { moveEl, moveIndex } from '../src'
+import { moveEl, moveIndex, shuffle } from '../src'
 
 test('should deep equal', () => {
   expect(moveEl([1, 2, 3, 4], [1, 2, 3], 1)).toEqual([1, 2, 3, 4])
@@ -74,4 +74,33 @@ test('should throw error', () => {
   expect(moveIndex.bind(null, [3, 6, 0, 8, 2, 4], [1, 9], 5)).toThrow(
     'toMoveIndexes `[1,9]` should be all included in arr indexes',
   )
+})
+
+test('shuffle correctly', () => {
+  const indexes = {}
+  const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+  for (let i = 0; i < 100000; i++) {
+    const shuffled = shuffle(arr)
+    arr.forEach(v => {
+      const index = shuffled.indexOf(v)
+
+      let result = indexes[v]
+
+      if (!result) {
+        result = indexes[v] = []
+      }
+
+      if (result[index] == null) {
+        result[index] = 0
+      }
+
+      result[index]++
+    })
+  }
+
+  Object.values(indexes).forEach(values => {
+    expect(Math.min(...values)).toBeGreaterThan(9600)
+    expect(Math.max(...values)).toBeLessThan(10400)
+  })
 })

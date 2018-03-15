@@ -109,3 +109,19 @@ export const moveEl = (arr, toMoveEls, targetEl, key, next) => {
 
   return arr
 }
+
+/**
+ * 将数组 arr 进行乱序输出
+ *
+ * @param {Array} arr 任意数组
+ * @returns {Array}   乱序数组
+ */
+export const shuffle = arr => {
+  let i = arr.length
+  const input = [...arr]
+  const output = []
+  while (i) {
+    output.push(input.splice(Math.floor(Math.random() * i--), 1)[0])
+  }
+  return output
+}
