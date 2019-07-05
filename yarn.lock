@@ -1394,19 +1394,19 @@ escodegen@^1.9.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-1stg@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-1stg/-/eslint-config-1stg-3.0.0.tgz#3fd29ea65fd1cb1ff6380b85280098e217229148"
+eslint-config-1stg@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-1stg/-/eslint-config-1stg-3.1.0.tgz#d91b73d0675e3a7359b0281bbe1c3b44fe40a545"
   dependencies:
     babel-eslint "^9.0.0"
     eslint-config-prettier "^3.0.1"
-    eslint-config-standard "^11.0.0"
+    eslint-config-standard "^12.0.0"
     eslint-plugin-import "^2.14.0"
     eslint-plugin-node "^7.0.1"
     eslint-plugin-prettier "^2.6.2"
     eslint-plugin-promise "^4.0.0"
     eslint-plugin-react "^7.11.1"
-    eslint-plugin-standard "^3.1.0"
+    eslint-plugin-standard "^4.0.0"
     eslint-plugin-vue "^4.7.1"
 
 eslint-config-prettier@^3.0.1:
@@ -1415,9 +1415,9 @@ eslint-config-prettier@^3.0.1:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-standard@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-11.0.0.tgz#87ee0d3c9d95382dc761958cbb23da9eea31e0ba"
+eslint-config-standard@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-12.0.0.tgz#638b4c65db0bd5a41319f96bba1f15ddad2107d9"
 
 eslint-import-resolver-node@^0.3.1:
   version "0.3.2"
@@ -1487,9 +1487,9 @@ eslint-plugin-react@^7.11.1:
     jsx-ast-utils "^2.0.1"
     prop-types "^15.6.2"
 
-eslint-plugin-standard@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-3.1.0.tgz#2a9e21259ba4c47c02d53b2d0c9135d4b1022d47"
+eslint-plugin-standard@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-4.0.0.tgz#f845b45109c99cd90e77796940a344546c8f6b5c"
 
 eslint-plugin-vue@^4.7.1:
   version "4.7.1"
